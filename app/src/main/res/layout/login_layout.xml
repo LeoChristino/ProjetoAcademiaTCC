@@ -40,7 +40,6 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
             android:hint="Senha"
             app:endIconMode="password_toggle">
 
@@ -50,21 +49,15 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            style="@style/Widget.Material3.Button.TextButton"
+            android:id="@+id/btnCriarConta"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btnCadastro"
-                style="@style/Widget.Material3.Button.ElevatedButton"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:text="ENTRAR"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:backgroundTint="#34344c"
-                android:layout_marginRight="20dp"/>
+            android:text="Não tem uma conta? Crie uma agora!"
+            android:textColor="#34344c"
+            android:layout_gravity="start"
+            android:layout_marginLeft="25dp"/>
 
             <Button
                 android:id="@+id/btnEntrar"
@@ -73,9 +66,8 @@
                 android:layout_height="60dp"
                 android:text="ENTRAR"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 app:backgroundTint="#34344c" />
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
