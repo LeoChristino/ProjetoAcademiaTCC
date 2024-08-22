@@ -27,7 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:hint="Usuario">
+            android:hint="Usuario"
+            android:textColorHint="#34344c"
+            app:boxStrokeColor="#34344c"
+            app:hintTextColor="#34344c">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -35,39 +38,46 @@
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtSenha"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="Senha"
-            app:endIconMode="password_toggle">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            style="@style/Widget.Material3.Button.TextButton"
-            android:id="@+id/btnCriarConta"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Não tem uma conta? Crie uma agora!"
-            android:textColor="#34344c"
-            android:layout_gravity="start"
-            android:layout_marginLeft="25dp"/>
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtSenha"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Senha"
+                android:textColorHint="#34344c"
+                app:boxStrokeColor="#34344c"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="#34344c">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnEntrar"
-                style="@style/Widget.Material3.Button.ElevatedButton"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:text="ENTRAR"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                app:backgroundTint="#34344c" />
+                android:id="@+id/btnCriarConta"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não tem uma conta? Crie uma agora!"
+                android:textColor="#34344c" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEntrar"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:text="ENTRAR"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            app:backgroundTint="#34344c" />
 
     </LinearLayout>
 </LinearLayout>
