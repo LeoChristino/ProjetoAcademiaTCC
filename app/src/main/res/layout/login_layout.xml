@@ -19,14 +19,15 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/bodygymcompletelogo" />
+            android:src="@drawable/logo2" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtUsuario"
-            android:layout_width="350dp"
+            android:id="@+id/txtEmailLogin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
             android:hint="Usuario"
             android:textColorHint="#34344c"
             app:boxStrokeColor="#34344c"
@@ -38,27 +39,28 @@
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtSenhaLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:hint="Senha"
+            android:textColorHint="#34344c"
+            app:boxStrokeColor="#34344c"
+            app:endIconMode="password_toggle"
+            app:hintTextColor="#34344c">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtSenha"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:hint="Senha"
-                android:textColorHint="#34344c"
-                app:boxStrokeColor="#34344c"
-                app:endIconMode="password_toggle"
-                app:hintTextColor="#34344c">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnCriarConta"
@@ -70,7 +72,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnEntrar"
+            android:id="@+id/btnLogin"
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="150dp"
             android:layout_height="60dp"
