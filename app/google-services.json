@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137227995442",
+    "project_id": "academia-tcc-d8cd2",
+    "storage_bucket": "academia-tcc-d8cd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137227995442:android:6b4f323ee6fac8511aef2b",
+        "android_client_info": {
+          "package_name": "com.example.academiatcc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfFkm-zX4jFoRHr2iWTNZs9kGoqSMMT08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
