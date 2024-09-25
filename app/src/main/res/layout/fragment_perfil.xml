@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".PerfilFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Perfil"
-        android:gravity="center"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/personPerfil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:src="@drawable/person"
+        app:civ_border_color="#000"
+        app:civ_border_width="2dp" />
 
-</FrameLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Minha frequencia"
+        android:textSize="18sp"
+        app:iconSize="30sp"
+        app:icon="@drawable/graphic" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Minha frequencia"
+        android:textSize="18sp"
+        app:iconSize="30sp"
+        app:icon="@drawable/graphic" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Minha frequencia"
+        android:textSize="18sp"
+        app:iconSize="30sp"
+        app:icon="@drawable/graphic" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Minha frequencia"
+        android:textSize="18sp"
+        app:iconSize="30sp"
+        app:icon="@drawable/graphic" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.Material3.Button.IconButton.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Minha frequencia"
+        android:textSize="18sp"
+        app:iconSize="30sp"
+        app:icon="@drawable/graphic" />
+
+
+</LinearLayout>
