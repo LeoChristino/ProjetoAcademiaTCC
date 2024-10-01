@@ -9,20 +9,24 @@ public class ApiAPPTCC {
     private static final String URL_createLista
     private static final String URL_createTreino
     private static final String URL_createExercicio
-    private static final String URL_getPersonal
+
 
 //Get
+    private static final String URL_getPersonal
     private static final String URL_getAluno
     private static final String URL_getLista
     private static final String URL_gettreino
-
+    private static final String URL_getExercicio
 //Update
     private static final String URL_updateTreino
     private static final String URL_updateLista
     private static final String URL_updateExercicio
+    private static final String URL_updatePersonal
+    private static final String URL_updateAluno
+
 
 //Delete
     private static final String URL_deleteTreino
     private static final String URL_deleteExercicio
-    private static final String URL_Lista
+    private static final String URL_deleteLista
 }
