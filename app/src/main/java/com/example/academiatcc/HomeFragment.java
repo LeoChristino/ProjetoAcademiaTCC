@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid();
-            DocumentReference userRef = firestore.collection("users").document(userId);
+            DocumentReference userRef = firestore.collection("Alunos").document(userId);
             userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
                         if (document.exists()) {
                             String userName = document.getString("nome");
                             if (userName != null) {
-                                String text = "Bem vindo, " + userName + "!";
+                                String text = "Bem vindo(a), " + userName + "!";
                                 SpannableString spannable = new SpannableString(text);
 
                                 int startIndex = text.indexOf(userName);

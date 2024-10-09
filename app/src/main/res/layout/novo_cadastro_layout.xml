@@ -20,6 +20,29 @@
             android:layout_gravity="center"
             android:src="@drawable/logo2" />
 
+        <RadioGroup
+            android:id="@+id/radiogroupTipoCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbAlunoCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:text="Aluno"
+                app:buttonTint="#34344c" />
+
+            <RadioButton
+                android:id="@+id/rbPersonalCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:text="Personal"
+                app:buttonTint="#34344c" />
+        </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtNomeCadastro"
@@ -132,8 +155,8 @@
                 android:id="@+id/rbFemininoCadastro"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Feminino"
                 android:layout_marginRight="10dp"
+                android:text="Feminino"
                 app:buttonTint="#34344c" />
 
             <RadioButton
