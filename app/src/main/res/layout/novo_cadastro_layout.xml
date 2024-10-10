@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/bodygymlogo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
             android:src="@drawable/logo2" />
 
@@ -43,6 +43,25 @@
                 android:text="Personal"
                 app:buttonTint="#34344c" />
         </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtIdPersonalCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="5dp"
+            android:hint="ID Personal"
+            android:textColorHint="#34344c"
+            android:visibility="gone"
+            app:boxStrokeColor="#34344c"
+            app:hintTextColor="#34344c">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtNomeCadastro"
