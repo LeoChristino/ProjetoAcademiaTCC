@@ -32,16 +32,16 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        textView = view.findViewById(R.id.txtBemVindo); // Substitua pelo ID do seu TextView
+        textView = view.findViewById(R.id.txtBemVindo);
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if (currentUser != null) {
-            String userId = currentUser.getUid();
+        FirebaseUser usuario = auth.getCurrentUser();
+        if (usuario != null) {
+            String userId = usuario.getUid();
             DocumentReference userRef = firestore.collection("Alunos").document(userId);
             userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
@@ -69,7 +69,6 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-
         return view;
     }
 }

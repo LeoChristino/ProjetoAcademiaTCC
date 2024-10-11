@@ -30,9 +30,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="10dp"
             android:hint="Email"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -47,10 +47,10 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
             android:hint="Senha"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
             app:endIconMode="password_toggle"
-            app:hintTextColor="#34344c">
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Não tem uma conta? Crie uma agora!"
-                android:textColor="#34344c" />
+                android:textColor="@color/Cor01" />
         </LinearLayout>
 
         <Button
@@ -80,7 +80,7 @@
             android:text="ENTRAR"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            app:backgroundTint="#34344c" />
+            app:backgroundTint="@color/Cor01" />
 
     </LinearLayout>
 </LinearLayout>

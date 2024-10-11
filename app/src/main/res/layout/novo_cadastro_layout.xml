@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:text="Aluno"
-                app:buttonTint="#34344c" />
+                app:buttonTint="@color/Cor01" />
 
             <RadioButton
                 android:id="@+id/rbPersonalCadastro"
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:text="Personal"
-                app:buttonTint="#34344c" />
+                app:buttonTint="@color/Cor01" />
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -52,10 +52,10 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="5dp"
             android:hint="ID Personal"
-            android:textColorHint="#34344c"
+            android:textColorHint="@color/Cor01"
             android:visibility="gone"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -71,9 +71,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="5dp"
             android:hint="Nome"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -90,9 +90,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="5dp"
             android:hint="Email"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -109,9 +109,9 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="5dp"
             android:hint="Celular"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -127,10 +127,10 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="5dp"
             android:hint="Senha"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
             app:endIconMode="password_toggle"
-            app:hintTextColor="#34344c">
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -145,9 +145,9 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
             android:hint="Confirmar senha"
-            android:textColorHint="#34344c"
-            app:boxStrokeColor="#34344c"
-            app:hintTextColor="#34344c">
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -168,7 +168,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:text="Masculino"
-                app:buttonTint="#34344c" />
+                app:buttonTint="@color/Cor01" />
 
             <RadioButton
                 android:id="@+id/rbFemininoCadastro"
@@ -183,7 +183,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Outro"
-                app:buttonTint="#34344c" />
+                app:buttonTint="@color/Cor01" />
         </RadioGroup>
 
         <Button
@@ -195,6 +195,6 @@
             android:text="FINALIZAR"
             android:textColor="#FFFFFF"
             android:textSize="15sp"
-            app:backgroundTint="#34344c" />
+            app:backgroundTint="@color/Cor01" />
     </LinearLayout>
 </LinearLayout>

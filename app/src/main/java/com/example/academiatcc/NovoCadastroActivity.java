@@ -35,12 +35,13 @@ public class NovoCadastroActivity extends AppCompatActivity {
     private RadioGroup radioGroupTipo;
 
     private String IdCustomizado() {
+
         return GeradorId();
     }
 
     // Algorithm 1: Using Random Characters
     private String GeradorId() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random random = new Random();
         StringBuilder id = new StringBuilder();
         for (int i = 0; i < 4; i++) {
@@ -81,6 +82,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
         //-----------------------------------------------------------------------------------------
         // Configurar o clique do botão de cadastro
         cadastroButton.setOnClickListener(view -> {
+            String idpersonal = idPersonalEditText.getEditText().getText().toString();
             String email = emailEditText.getEditText().getText().toString();
             String password = passwordEditText.getEditText().getText().toString();
             String confirmarSenha = confirmarSenhaEditText.getEditText().getText().toString();
@@ -115,7 +117,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
 
             //-----------------------------------------------------------------------------------------
             // Validação básica (adicione mais validações conforme necessário)
-            if (email.isEmpty() || password.isEmpty() || nome.isEmpty() || celular.isEmpty()) {
+            if (idpersonal.isEmpty() ||email.isEmpty() || password.isEmpty() || nome.isEmpty() || celular.isEmpty()) {
                 Toast.makeText(NovoCadastroActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -123,7 +125,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
             //-----------------------------------------------------------------------------------------
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
                 FirebaseUser user = auth.getCurrentUser();
-                salvarDadosUsuario(user.getUid(), tipo, email, nome, celular, sexo);
+                salvarDadosUsuario(user.getUid(), idpersonal ,tipo, email, nome, celular, sexo);
 
                 Toast.makeText(NovoCadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(NovoCadastroActivity.this, LoginActivity.class);
@@ -135,18 +137,18 @@ public class NovoCadastroActivity extends AppCompatActivity {
         });
     }
 
-    private void salvarDadosUsuario(String userId, String tipo, String email, String nome, String celular, String sexo) {
+    private void salvarDadosUsuario(String userId, String idpersonal, String tipo, String email, String nome, String celular, String sexo) {
         //gerador de ID
         String id = IdCustomizado();
         // Salvar dados do usuário no Firestore
         Map<String, Object> user = new HashMap<>();
-        user.put("id", id);
         user.put("tipo", tipo);
         user.put("email", email);
         user.put("nome", nome);
         user.put("celular", celular);
         user.put("sexo", sexo);
         if (tipo.equals("Aluno")) {
+            user.put("idPersonal", idpersonal);
             db.collection("Alunos").document(userId).set(user).addOnSuccessListener(aVoid -> {
                 // Dados salvos com sucesso
             }).addOnFailureListener(e -> {
@@ -154,6 +156,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
                 Toast.makeText(NovoCadastroActivity.this, "Erro ao salvar dados do usuário", Toast.LENGTH_SHORT).show();
             });
         } else {
+            user.put("id", id);
             db.collection("Personais").document(userId).set(user).addOnSuccessListener(aVoid -> {
                 // Dados salvos com sucesso
             }).addOnFailureListener(e -> {
