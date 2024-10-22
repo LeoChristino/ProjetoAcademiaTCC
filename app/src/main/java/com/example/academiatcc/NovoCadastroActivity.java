@@ -117,7 +117,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
 
             //-----------------------------------------------------------------------------------------
             // Validação básica (adicione mais validações conforme necessário)
-            if (idpersonal.isEmpty() ||email.isEmpty() || password.isEmpty() || nome.isEmpty() || celular.isEmpty()) {
+            if (email.isEmpty() || password.isEmpty() || nome.isEmpty() || celular.isEmpty()) {
                 Toast.makeText(NovoCadastroActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -151,6 +151,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
             user.put("idPersonal", idpersonal);
             db.collection("Alunos").document(userId).set(user).addOnSuccessListener(aVoid -> {
                 // Dados salvos com sucesso
+                Toast.makeText(NovoCadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(e -> {
                 // Erro ao salvar dados - Trate o erro de forma mais robusta
                 Toast.makeText(NovoCadastroActivity.this, "Erro ao salvar dados do usuário", Toast.LENGTH_SHORT).show();
@@ -159,6 +160,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
             user.put("id", id);
             db.collection("Personais").document(userId).set(user).addOnSuccessListener(aVoid -> {
                 // Dados salvos com sucesso
+                Toast.makeText(NovoCadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
             }).addOnFailureListener(e -> {
                 // Erro ao salvar dados - Trate o erro de forma mais robusta
                 Toast.makeText(NovoCadastroActivity.this, "Erro ao salvar dados do usuário", Toast.LENGTH_SHORT).show();

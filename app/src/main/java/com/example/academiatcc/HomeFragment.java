@@ -25,9 +25,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeFragment extends Fragment {
 
-    private TextView textView;
-    private FirebaseAuth auth;
-    private FirebaseFirestore firestore;
+    TextView textView;
+    FirebaseAuth auth;
+    FirebaseFirestore firestore;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
