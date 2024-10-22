@@ -5,14 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".home_aluno">
 
-    
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNavView" />
+
+
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"
@@ -25,5 +23,4 @@
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu" />
-
 </RelativeLayout>
