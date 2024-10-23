@@ -19,6 +19,9 @@
             android:name=".TreinoActivity"
             android:exported="false" />
         <activity
+            android:name=".layoutmenuprofessor"
+            android:exported="false" />
+        <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
