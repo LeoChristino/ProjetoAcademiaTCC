@@ -1,90 +1,37 @@
 package com.example.academiatcc;
 
-
-//create table tbAlunos(
-//codAlun int not null auto_increment,
-//nome varchar(50) not null,
-//sexo char(1) default "M" check(sexo in('F','M')),
-//dataNasc date,
-//cell char(10),
-//email varchar(50) not null,
-//ftAlun varchar(200),
-//codPer int not null,
-//primary key (codAlun),
-//foreign key(codPer)references tbPersonal(codPer));
-
 public class Aluno {
-    private int CodAluno;
-    private String NomeAluno;
-    private String Sexo;
-    private int ftPerfil;
-    private String Celular;
-    private String Email;
-    private String DataNasc;
+    private int codAlun,codPer;
+    private String nome, email, cell, sexo;
 
-    public int getCodAluno() {
-        return CodAluno;
+    public Aluno() {
     }
 
-    public void setCodAluno(int codAluno) {
-        CodAluno = codAluno;
+    public Aluno(int codAlun, String nome, String email, String cell, String sexo, int codPer) {
+        this.codAlun = codAlun;
+        this.nome = nome;
+        this.email = email;
+        this.cell = cell;
+        this.sexo = sexo;
+        this.codPer = codPer;
     }
 
-    public String getNomeAluno() {
-        return NomeAluno;
-    }
+    public int getCodAlun(){return codAlun;}
+    public void setCodAlun(int codAlun){this.codAlun = codAlun;}
 
-    public void setNomeAluno(String nomeAluno) {
-        NomeAluno = nomeAluno;
-    }
+    public String getNome(){return nome;}
+    public void setNome(String nome){this.nome = nome;}
 
-    public String getSexo() {
-        return Sexo;
-    }
+    public String getEmail(){return email;}
+    public void setEmail(String email){this.email = email;}
 
-    public void setSexo(String sexo) {
-        Sexo = sexo;
-    }
+    public String getCell(){return cell;}
+    public void setCell(String ce){this.cell = cell;}
 
-    public int getFtPerfil() {
-        return ftPerfil;
-    }
+    public String getSexo(){return sexo;}
+    public void setSexo(String sexo){this.sexo = sexo;}
 
-    public void setFtPerfil(int ftPerfil) {
-        this.ftPerfil = ftPerfil;
-    }
+    public int getCodPer(){return codPer;}
+    public void setCodPer(int codPer){this.codPer = codPer;}
 
-    public String getCelular() {
-        return Celular;
-    }
-
-    public void setCelular(String celular) {
-        Celular = celular;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getDataNasc() {
-        return DataNasc;
-    }
-
-    public void setDataNasc(String dataNasc) {
-        DataNasc = dataNasc;
-    }
-
-    public Aluno(int codAluno, String nomeAluno, String sexo, int ftPerfil, String celular, String email, String dataNasc) {
-        CodAluno = codAluno;
-        NomeAluno = nomeAluno;
-        Sexo = sexo;
-        this.ftPerfil = ftPerfil;
-        Celular = celular;
-        Email = email;
-        DataNasc = dataNasc;
-    }
 }
