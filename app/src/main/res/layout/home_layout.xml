@@ -24,6 +24,6 @@
         app:itemPaddingBottom="10dp"
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menuprofessor" />
 
 </RelativeLayout>

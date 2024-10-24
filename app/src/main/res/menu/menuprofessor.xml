@@ -4,27 +4,27 @@
         android:id="@+id/navHome"
         android:enabled="true"
         android:icon="@drawable/baseline_home"
-        android:title="home" />
-    <item
-        android:id="@+id/navBusca"
-        android:enabled="true"
-        android:icon="@drawable/baseline_search"
-        android:title="busca" />
+        android:title="Home" />
     <item
         android:id="@+id/navExercicios"
         android:enabled="true"
-        android:icon="@drawable/baseline_view_list"
-        android:title="exercicios" />
+        android:icon="@drawable/dumbbell"
+        android:title="Exercícios" />
     <item
-        android:id="@+id/navPerfil"
+        android:id="@+id/navListaTreinos"
+        android:enabled="true"
+        android:icon="@drawable/list"
+        android:title="Treinos" />
+    <item
+        android:id="@+id/navAlunos"
+        android:enabled="true"
+        android:icon="@drawable/users"
+        android:title="Alunos" />
+    <item
+        android:id="@+id/navPerfilProf"
         android:enabled="true"
         android:icon="@drawable/baseline_person"
-        android:title="perfil" />
-    <item
-        android:id="@+id/navFichaTreino"
-        android:enabled="true"
-        android:icon="@drawable/baseline_fichatreino"
-        android:title="Ficha de treino"/>
+        android:title="Perfil"/>
 
 
 </menu>
