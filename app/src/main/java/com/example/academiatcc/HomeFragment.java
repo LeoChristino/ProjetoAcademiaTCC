@@ -25,17 +25,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeFragment extends Fragment {
 
-    TextView textView;
+    TextView nomeAluno;
     FirebaseAuth auth;
     FirebaseFirestore firestore;
+    SpannableString spannable2;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        textView = view.findViewById(R.id.txtBemVindo);
+        nomeAluno = view.findViewById(R.id.txtBemVindo);
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
@@ -43,13 +43,16 @@ public class HomeFragment extends Fragment {
         if (usuario != null) {
             String userId = usuario.getUid();
             DocumentReference userRef = firestore.collection("Alunos").document(userId);
+
             userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            String userName = document.getString("nome");
+                        DocumentSnapshot alunoDoc = task.getResult();
+                        if (alunoDoc.exists()) {
+                            String userName = alunoDoc.getString("nome");
+                            String personalId = alunoDoc.getString("idPersonal");
+
                             if (userName != null) {
                                 String text = "Bem vindo(a), " + userName + "!";
                                 SpannableString spannable = new SpannableString(text);
@@ -59,10 +62,9 @@ public class HomeFragment extends Fragment {
                                 int color = Color.parseColor("#BF0426");
                                 spannable.setSpan(new ForegroundColorSpan(color), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 spannable.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-                                textView.setText(spannable);
+                                nomeAluno.setText(spannable);
                             } else {
-                                textView.setText("Bem vindo!");
+                                nomeAluno.setText("Bem vindo!");
                             }
                         }
                     }
