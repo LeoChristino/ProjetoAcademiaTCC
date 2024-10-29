@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d9d7d7"
+    tools:context=".PerfilAlunoFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1A1A26"
+        android:minHeight="?attr/actionBarSize"
+        app:menu="@menu/menu"
+        app:navigationIcon="@drawable/back"
+        app:navigationIconTint="@color/white"
+        app:title="Meu Perfil"
+        app:titleTextColor="#F6F3F3" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/PerfilAluno"
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp"
+            android:src="@drawable/girlGym"
+            app:civ_border_color="#000"
+            app:civ_border_width="2dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/NomeAluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PerfilAluno"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Julia Silva "/>
+
+        <TextView
+            android:id="@+id/IddoAluno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/NomeAluno"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:text="ID: 10134"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonMeuPerfil"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/IddoAluno"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#525257"
+            android:text="Editar Perfil"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/identity"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonMinhaFrequencia"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonMeuPerfil"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Minha frequência"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/graphic"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonMeuPersonal"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonMinhaFrequencia"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Professor"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/personal"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonAvaliar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonMeuPersonal"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Avaliar"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/feedback"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonAjuda"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonAvaliar"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#525257"
+            android:text="Ajuda"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/help"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonSair"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonAjuda"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#525257"
+            android:text="Sair"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/exit"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
+
+        </com.google.android.material.button.MaterialButton>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

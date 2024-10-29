@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <style name="CostumeOutinedButton" parent="Widget.Material3.Button.OutlinedButton">
+     
+     <item name="strokeColor">@color/black</item>
+     <item name="strokeWidth">4dp</item>
+     
+ </style>
+
+</resources>
