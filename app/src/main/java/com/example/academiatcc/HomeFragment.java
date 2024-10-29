@@ -25,16 +25,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeFragment extends Fragment {
 
-    TextView nomeAluno;
+    TextView nomeAluno, nomePersonal;
     FirebaseAuth auth;
     FirebaseFirestore firestore;
-    SpannableString spannable2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        nomePersonal = view.findViewById(R.id.txtNomePersonal);
         nomeAluno = view.findViewById(R.id.txtBemVindo);
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
@@ -43,7 +42,6 @@ public class HomeFragment extends Fragment {
         if (usuario != null) {
             String userId = usuario.getUid();
             DocumentReference userRef = firestore.collection("Alunos").document(userId);
-
             userRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -51,8 +49,20 @@ public class HomeFragment extends Fragment {
                         DocumentSnapshot alunoDoc = task.getResult();
                         if (alunoDoc.exists()) {
                             String userName = alunoDoc.getString("nome");
-                            String personalId = alunoDoc.getString("idPersonal");
-
+                            String idPersonal = alunoDoc.getString("idPersonal");
+                            DocumentReference personalRef = firestore.collection("Personais").document(idPersonal);
+                            personalRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot personalDoc = task.getResult();
+                                        if (personalDoc.exists()) {
+                                            String personalName = personalDoc.getString("nome");
+                                            nomePersonal.setText(personalName);
+                                        }
+                                    }
+                                }
+                            });
                             if (userName != null) {
                                 String text = "Bem vindo(a), " + userName + "!";
                                 SpannableString spannable = new SpannableString(text);

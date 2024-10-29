@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Cor01">#34344C</color>
     <color name="Cor02">#BF0426</color>
+    <color name="Cor03">#1D1D1D</color>
+    <color name="Cor04">#F4EDED</color>
 </resources>

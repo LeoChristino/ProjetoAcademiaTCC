@@ -10,11 +10,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -25,23 +30,8 @@ public class NovoCadastroActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-    private TextInputLayout idPersonalEditText, nomeEditText, emailEditText, celularEditText, passwordEditText, confirmarSenhaEditText;
+    private TextInputLayout idPersonalEditText, crefPersonaltEditText, nomeEditText, emailEditText, celularEditText, passwordEditText, confirmarSenhaEditText;
     private RadioGroup radioGroupSexo, radioGroupTipo;
-
-    private String IdCustomizado() {
-        return GeradorId();
-    }
-
-    // Algorithm 1: Using Random Characters
-    private String GeradorId() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        Random random = new Random();
-        StringBuilder id = new StringBuilder();
-        for (int i = 0; i < 4; i++) {
-            id.append(characters.charAt(random.nextInt(characters.length())));
-        }
-        return id.toString();
-    }
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -52,6 +42,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         idPersonalEditText = findViewById(R.id.txtIdPersonalCadastro);
+        crefPersonaltEditText = findViewById(R.id.txtCrefPersonalCadastro);
         emailEditText = findViewById(R.id.txtEmailCadastro);
         passwordEditText = findViewById(R.id.txtSenhaCadastro);
         confirmarSenhaEditText = findViewById(R.id.txtConfirmaSenhaCadastro);
@@ -67,7 +58,9 @@ public class NovoCadastroActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == R.id.rbAlunoCadastro) { // Assuming radioButtonPersonal is the ID of your "Personal" radio button
                     idPersonalEditText.setVisibility(View.VISIBLE);
+                    crefPersonaltEditText.setVisibility(View.GONE);
                 } else {
+                    crefPersonaltEditText.setVisibility(View.VISIBLE);
                     idPersonalEditText.setVisibility(View.GONE);
                 }
             }
@@ -76,6 +69,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
         // Configurar o clique do botão de cadastro
         cadastroButton.setOnClickListener(view -> {
             String idpersonal = idPersonalEditText.getEditText().getText().toString();
+            String crefpersonal = crefPersonaltEditText.getEditText().getText().toString();
             String nome = nomeEditText.getEditText().getText().toString();
             String email = emailEditText.getEditText().getText().toString();
             String celular = celularEditText.getEditText().getText().toString();
@@ -92,7 +86,19 @@ public class NovoCadastroActivity extends AppCompatActivity {
             RadioButton radioButtonTipo = findViewById(TipoSelecionadoId);
             String tipo = radioButtonTipo.getText().toString();
 
-
+            if (tipo.equals("Aluno")) {
+                if (idpersonal.isEmpty()) {
+                    Toast.makeText(NovoCadastroActivity.this, "Preencha o campo IdPersonal!", Toast.LENGTH_SHORT).show();
+                    idPersonalEditText.requestFocus();
+                    return;
+                }
+            } else {
+                if (crefpersonal.isEmpty()) {
+                    Toast.makeText(NovoCadastroActivity.this, "Preencha o campo CREF!", Toast.LENGTH_SHORT).show();
+                    crefPersonaltEditText.requestFocus();
+                    return;
+                }
+            }
             // Validações básicas
             if (nome.isEmpty()) {
                 Toast.makeText(NovoCadastroActivity.this, "Preencha o campo nome!", Toast.LENGTH_SHORT).show();
@@ -132,7 +138,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
             //-----------------------------------------------------------------------------------------
             auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
                 FirebaseUser user = auth.getCurrentUser();
-                salvarDadosUsuario(user.getUid(), idpersonal, tipo, email, nome, celular, sexo);
+                salvarDadosUsuario(user.getUid(), idpersonal, crefpersonal, tipo, email, nome, celular, sexo);
 
                 Toast.makeText(NovoCadastroActivity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(NovoCadastroActivity.this, LoginActivity.class);
@@ -144,9 +150,7 @@ public class NovoCadastroActivity extends AppCompatActivity {
         });
     }
 
-    private void salvarDadosUsuario(String userId, String idpersonal, String tipo, String email, String nome, String celular, String sexo) {
-        //gerador de ID
-        String id = IdCustomizado();
+    private void salvarDadosUsuario(String userId, String idpersonal, String crefpersonal, String tipo, String email, String nome, String celular, String sexo) {
         // Salvar dados do usuário no Firestore
         Map<String, Object> user = new HashMap<>();
         user.put("tipo", tipo);
@@ -154,24 +158,17 @@ public class NovoCadastroActivity extends AppCompatActivity {
         user.put("nome", nome);
         user.put("celular", celular);
         user.put("sexo", sexo);
+
         if (tipo.equals("Aluno")) {
-            if (idpersonal.isEmpty()) {
-                Toast.makeText(NovoCadastroActivity.this, "Preencha o campo IdPersonal!", Toast.LENGTH_SHORT).show();
-                idPersonalEditText.requestFocus();
-                return;
-            } else {
-                user.put("idPersonal", idpersonal);
-                db.collection("Alunos").document(userId).set(user).addOnSuccessListener(aVoid -> {
-                    // Dados salvos com sucesso
-                    cadastroRealizado();
-                }).addOnFailureListener(e -> {
-                    erroDeCadastro();
-                });
-            }
+            user.put("idPersonal", idpersonal);
+            db.collection("Alunos").document(userId).set(user).addOnSuccessListener(aVoid -> {
+                cadastroRealizado();
+            }).addOnFailureListener(e -> {
+                erroDeCadastro();
+            });
         } else {
-            user.put("id", id);
+            user.put("cref", crefpersonal);
             db.collection("Personais").document(userId).set(user).addOnSuccessListener(aVoid -> {
-                // Dados salvos com sucesso
                 cadastroRealizado();
             }).addOnFailureListener(e -> {
                 erroDeCadastro();
@@ -186,4 +183,5 @@ public class NovoCadastroActivity extends AppCompatActivity {
     private void erroDeCadastro() {
         Toast.makeText(NovoCadastroActivity.this, "Erro ao cadastrar", Toast.LENGTH_SHORT).show();
     }
+
 }

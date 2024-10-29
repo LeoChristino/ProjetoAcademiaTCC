@@ -5,10 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:background="@color/Cor04">
+    tools:context=".HomePersonalActivity">
 
-    
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -25,6 +23,6 @@
         app:itemPaddingBottom="10dp"
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menuprofessor" />
 
 </RelativeLayout>

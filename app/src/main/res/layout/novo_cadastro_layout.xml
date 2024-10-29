@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Cor04"
     android:orientation="vertical"
     tools:context=".NovoCadastroActivity">
 
@@ -53,6 +54,7 @@
             android:layout_marginBottom="5dp"
             android:hint="ID Personal"
             android:textColorHint="@color/Cor01"
+            android:visibility="gone"
             app:boxStrokeColor="@color/Cor01"
             app:hintTextColor="@color/Cor01">
 
@@ -61,6 +63,26 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtCrefPersonalCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="5dp"
+            android:hint="CREF"
+            android:textColorHint="@color/Cor01"
+            android:visibility="gone"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtNomeCadastro"
