@@ -21,7 +21,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/PerfilAluno"
@@ -29,7 +29,7 @@
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"
-            android:src="@drawable/girlGym"
+            android:src="@drawable/girlgym"
             app:civ_border_color="#000"
             app:civ_border_width="2dp">
 
@@ -134,13 +134,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/ButtonAvaliar"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#525257"
             android:text="Ajuda"
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:icon="@drawable/help"
+            app:icon="@drawable/ajuda"
             app:iconSize="30dp"
             app:iconTint="@color/Cor03">
 
@@ -152,17 +152,18 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@id/ButtonAjuda"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#525257"
             android:text="Sair"
+            app:icon="@drawable/sair"
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold"
-            app:icon="@drawable/exit"
             app:iconSize="30dp"
             app:iconTint="@color/Cor03">
 
         </com.google.android.material.button.MaterialButton>
+
 
     </RelativeLayout>
 

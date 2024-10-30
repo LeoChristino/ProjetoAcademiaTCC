@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,17 +11,17 @@
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
         android:background="#1A1A26"
-        app:title="Meu Perfil"
-        app:titleTextColor="#F6F3F3"
+        android:minHeight="?attr/actionBarSize"
         app:menu="@menu/menu"
+        app:navigationIcon="@drawable/back"
         app:navigationIconTint="@color/white"
-        app:navigationIcon="@drawable/back" />
+        app:title="Meu Perfil"
+        app:titleTextColor="#F6F3F3" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/PerfilProfessor"
@@ -30,7 +29,7 @@
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"
-            android:src="@drawable/personalfto"
+            android:src="@drawable/personalacademia"
             app:civ_border_color="#000"
             app:civ_border_width="2dp">
 
@@ -42,9 +41,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/PerfilProfessor"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
+            android:text="Leonardo Gerlach"
             android:textSize="20dp"
-            android:text="Leonardo Gerlach"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/IddoProfessor"
@@ -52,100 +51,99 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/NomeProfessor"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:textSize="15dp"
             android:text="ID: 14565"
-            />
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ButtonMeuPerfil"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/IddoProfessor"
-        android:layout_marginTop="15dp"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:text="Meus dados"
-        app:iconSize="30dp"
-        app:icon="@drawable/identity"
-        app:iconTint="@color/Cor03"
-        android:backgroundTint="#525257"
-        android:textSize="20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonMeuPerfil"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/IddoProfessor"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#525257"
+            android:text="Meus dados"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/identity"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
 
-    </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ButtonFrequenciaalunos"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="#000"
-        app:iconSize="30dp"
-        app:iconTint="@color/Cor03"
-        app:icon="@drawable/graphic"
-        android:layout_below="@id/ButtonMeuPerfil"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#525257"
-        android:text="Frequência Alunos"
-        android:textStyle="bold"
-        android:textSize="20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonFrequenciaalunos"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonMeuPerfil"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Frequência Alunos"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/graphic"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
 
-    </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ButtonAvaliar"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="#000"
-        app:icon="@drawable/feedback"
-        app:iconTint="@color/Cor03"
-        app:iconSize="30dp"
-        android:layout_below="@id/ButtonFrequenciaalunos"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="#525257"
-        android:textStyle="bold"
-        android:text="Avaliar"
-        android:textSize="20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonAvaliar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonFrequenciaalunos"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Avaliar"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/feedback"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
 
-    </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ButtonAjuda"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="#000"
-        android:layout_below="@id/ButtonAvaliar"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#525257"
-        app:icon="@drawable/help"
-        app:iconSize="30dp"
-        app:iconTint="@color/Cor03"
-        android:text="Ajuda"
-        android:textStyle="bold"
-        android:textSize="20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonAjuda"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonAvaliar"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Ajuda"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ajuda"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
 
-    </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ButtonSair"
-        style="@style/Widget.Material3.Button.OutlinedButton"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textColor="#000"
-        app:icon="@drawable/exit"
-        app:iconSize="30dp"
-        app:iconTint="@color/Cor03"
-        android:layout_below="@id/ButtonAjuda"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#525257"
-        android:text="Sair"
-        android:textStyle="bold"
-        android:textSize="20dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ButtonSair"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/ButtonAjuda"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#525257"
+            android:text="Sair"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:icon="@drawable/sair"
+            app:iconSize="30dp"
+            app:iconTint="@color/Cor03">
 
-    </com.google.android.material.button.MaterialButton>
+        </com.google.android.material.button.MaterialButton>
 
     </RelativeLayout>
 
