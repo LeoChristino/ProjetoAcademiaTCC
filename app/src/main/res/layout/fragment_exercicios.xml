@@ -4,10 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginHorizontal="10dp"
     tools:context=".ExerciciosFragment"
     android:background="@color/Cor04">
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,11 +33,6 @@
         android:text="Treino ABC - Foco em Hipertrofia"
         android:fontFamily="@font/saira"
         android:textSize="20sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/CardViewSegunda"
@@ -166,5 +171,5 @@
 
 
     </LinearLayout>
-
+    </FrameLayout>
 </LinearLayout>

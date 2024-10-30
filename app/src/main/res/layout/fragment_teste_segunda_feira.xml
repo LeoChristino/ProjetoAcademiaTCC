@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="TesteSegundaFeiraFragment">
+    tools:context="TesteSegundaFeiraFragment"
+    android:background="@color/Cor04">
 
     <!-- ScrollView para permitir a rolagem -->
     <ScrollView
@@ -23,7 +24,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="16dp">
 
