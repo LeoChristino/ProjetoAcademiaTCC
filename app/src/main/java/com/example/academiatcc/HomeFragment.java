@@ -58,7 +58,13 @@ public class HomeFragment extends Fragment {
                                         DocumentSnapshot personalDoc = task.getResult();
                                         if (personalDoc.exists()) {
                                             String personalName = personalDoc.getString("nome");
-                                            nomePersonal.setText(personalName);
+                                            SpannableString spannable2 = new SpannableString(personalName);
+                                            int startIndex = personalName.indexOf(personalName);
+                                            int endIndex = startIndex + personalName.length();
+                                            int color = Color.parseColor("#BF0426");
+                                            spannable2.setSpan(new ForegroundColorSpan(color), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                            spannable2.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                            nomePersonal.setText(spannable2);
                                         }
                                     }
                                 }

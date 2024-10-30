@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.core.UserData;
 
 public class PerfilFragment extends Fragment {
-    TextView textView;
+    TextView nomeUsuario;
     FirebaseAuth auth;
     FirebaseFirestore firestore;
 
@@ -30,7 +30,7 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        textView = view.findViewById(R.id.txtNomePerfil);
+        nomeUsuario = view.findViewById(R.id.txtNomePerfil);
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
@@ -47,10 +47,29 @@ public class PerfilFragment extends Fragment {
                             String userName = document.getString("nome");
                             if (userName != null) {
                                 String text = userName;
-                                textView.setText(text);
+                                nomeUsuario.setText(text);
                             } else {
-                                textView.setText("Nome não encontrado");
+                                nomeUsuario.setText("Nome não encontrado");
                             }
+                        } else {
+                            DocumentReference personalRef = firestore.collection("Personais").document(userId);
+                            personalRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot personalDoc = task.getResult();
+                                        if (personalDoc.exists()) {
+                                            String personalName = personalDoc.getString("nome");
+                                            if (personalName != null) {
+                                                String text = personalName;
+                                                nomeUsuario.setText(text);
+                                            } else {
+                                                nomeUsuario.setText("Nome não encontrado");
+                                            }
+                                        }
+                                    }
+                                }
+                            });
                         }
                     }
                 }
