@@ -41,7 +41,7 @@ public class HomePersonalActivity extends AppCompatActivity {
                 if (itemId == R.id.navHome) {
                     loadFragment(new HomePersonalFragment(), false);
                 } else if (itemId == R.id.navExercicios) {
-                    loadFragment(new BuscaFragment(), false);
+                    loadFragment(new ExerciciosPersonalFragment(), false);
                 } else if (itemId == R.id.navAlunos) {
                     loadFragment(new ListaAlunosPersonalFragment(), false);
                 } else {

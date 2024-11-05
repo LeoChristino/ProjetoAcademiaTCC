@@ -15,16 +15,10 @@
         android:theme="@style/Theme.AcademiaTCC"
         tools:targetApi="31">
         <activity
+            android:name=".CriarExercicioActivity"
+            android:exported="false" />
+        <activity
             android:name=".HomePersonalActivity"
-            android:exported="false" />
-        <activity
-            android:name=".home_aluno"
-            android:exported="false" />
-        <activity
-            android:name=".TreinoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".layoutmenuprofessor"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

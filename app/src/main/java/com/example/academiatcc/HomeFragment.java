@@ -25,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class HomeFragment extends Fragment {
 
-    TextView nomeAluno, nomePersonal;
+    TextView nomeAluno, nomePersonal, seuPersonal;
     FirebaseAuth auth;
     FirebaseFirestore firestore;
 
@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        seuPersonal = view.findViewById(R.id.txtSeuPersonal);
         nomePersonal = view.findViewById(R.id.txtNomePersonal);
         nomeAluno = view.findViewById(R.id.txtBemVindo);
         auth = FirebaseAuth.getInstance();
@@ -62,6 +63,8 @@ public class HomeFragment extends Fragment {
                                             int startIndex = personalName.indexOf(personalName);
                                             int endIndex = startIndex + personalName.length();
                                             int color = Color.parseColor("#BF0426");
+                                            seuPersonal.setVisibility(View.VISIBLE);
+                                            nomePersonal.setVisibility(View.VISIBLE);
                                             spannable2.setSpan(new ForegroundColorSpan(color), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                                             spannable2.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                                             nomePersonal.setText(spannable2);
