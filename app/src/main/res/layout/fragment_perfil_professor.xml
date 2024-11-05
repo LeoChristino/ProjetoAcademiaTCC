@@ -7,18 +7,6 @@
     android:background="#d9d7d7"
     tools:context=".PerfilProfessorFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#1A1A26"
-        android:minHeight="?attr/actionBarSize"
-        app:menu="@menu/menu"
-        app:navigationIcon="@drawable/back"
-        app:navigationIconTint="@color/white"
-        app:title="Meu Perfil"
-        app:titleTextColor="#F6F3F3" />
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">

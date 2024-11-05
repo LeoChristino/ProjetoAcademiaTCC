@@ -89,7 +89,6 @@
             app:icon="@drawable/graphic"
             app:iconSize="30dp"
             app:iconTint="@color/Cor03">
-
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
