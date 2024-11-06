@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.play.services.gcm)
     implementation(libs.firebase.firestore)
     implementation(libs.places)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -51,4 +52,5 @@ dependencies {
     implementation ("com.google.android.material:material:1.12.0")
     implementation("androidx.compose.material3:material3:1.1.1")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }
