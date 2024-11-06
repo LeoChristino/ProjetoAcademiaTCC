@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:elevation="10dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".fragmentAbaAddTreinoDiaForm">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Adicionar treinos"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do treino:"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/NomeDaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="                                            "
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dias de treino"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Dom"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Seg"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Ter"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Qua"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Qui"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Sex"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sab"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/ckbDom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp" />
+
+        <CheckBox
+            android:id="@+id/ckbSeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp" />
+
+        <CheckBox
+            android:id="@+id/ckbTer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp" />
+
+        <CheckBox
+            android:id="@+id/ckbQua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp" />
+
+        <CheckBox
+            android:id="@+id/ckbQui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp" />
+
+        <CheckBox
+            android:id="@+id/ckbSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="14dp" />
+
+        <CheckBox
+            android:id="@+id/ckbSab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:textSize="20dp"/>
+
+</LinearLayout>

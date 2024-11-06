@@ -1,36 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
+    android:layout_width="400dp"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@android:color/white"
+    android:elevation="10dp"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white"
-    android:elevation="4dp"
     tools:context=".fragmentAbaDeTreinoForm">
 
-    <EditText
-        android:id="@+id/editTextNome"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nome" />
+        android:layout_gravity="center_horizontal"
+        android:text="Nova lista de treino"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextObservacao"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Observação" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editTextObjetivo"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/NomeDaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="                                                             "
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Objetivo" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Observação:"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/ObsDaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="                                                  "
+            android:textSize="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Objetivo:"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/ObjDaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="                                                         "
+            android:textSize="20dp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
-
+        android:text="Salvar "
+        android:textSize="20dp"/>
 </LinearLayout>

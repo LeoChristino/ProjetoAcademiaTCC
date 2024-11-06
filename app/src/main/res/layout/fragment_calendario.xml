@@ -24,13 +24,14 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/NomeAlunoHome"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" "
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/NomeAlunoHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/calendarView"
