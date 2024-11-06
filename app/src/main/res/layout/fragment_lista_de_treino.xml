@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="10dp"
+    android:background="@color/Cor04"
+    android:orientation="vertical"
+    tools:context=".fragmentListaDeTreino">
+
+    <TextView
+        android:id="@+id/textViewMensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicione suas listas\nde treinos apertando\nno botão"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="45dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_centerInParent="true"/>
+
+    <!-- Seta apontando para o botão -->
+    <ImageView
+        android:id="@+id/imageViewSeta"
+        android:layout_width="150dp"
+        android:layout_height="170dp"
+        android:src="@drawable/SetaBaixo"
+        android:layout_marginTop="400dp"
+        android:layout_alignParentEnd="true"
+        />
+
+    <!-- Botão de adicionar lista -->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_show_dialog"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="575dp"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/add"
+
+        android:contentDescription="Adicionar"
+        android:backgroundTint="#A4A4A4"/>
+
+    <SearchView
+        android:id="@+id/idPesquisaTreino"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/fundopesquisa"
+        android:queryHint="Pesquisa" />
+
+
+    <!-- App atualizado -->
+</RelativeLayout>

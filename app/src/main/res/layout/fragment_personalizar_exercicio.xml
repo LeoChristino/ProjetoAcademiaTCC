@@ -9,6 +9,13 @@
     android:orientation="vertical"
     tools:context=".fragmentPersonalizarExercicio">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/FotoExercicio"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:clickable="true"
+        android:focusable="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +26,25 @@
             android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/costas" />
+
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="155dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/NumSerie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/saira"
+                android:text="Segunda"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:layout_width="200dp"
@@ -33,17 +58,19 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/saira"
             android:text="Barra"
+            android:layout_marginBottom="-5dp"
             android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:textSize="35sp" />
 
         <TextView
             android:id="@+id/NomeTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/saira"
-            android:text="Barra"
+            android:text="Treino ABC"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="25sp"
+            android:layout_marginTop="-15dp"/>
 
         <TextView
             android:id="@+id/NomeDiaTreino"
@@ -52,7 +79,10 @@
             android:fontFamily="@font/saira"
             android:text="Segunda"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            android:layout_marginTop="-10dp"/>
 
     </LinearLayout>
+
+
 </RelativeLayout>

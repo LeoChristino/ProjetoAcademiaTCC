@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <SearchView
-                android:id="@+id/idPesquisa"
+                android:id="@+id/idPesquisaExe"
                 android:layout_width="390dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
