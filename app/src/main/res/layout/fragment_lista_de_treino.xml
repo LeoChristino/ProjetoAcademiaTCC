@@ -40,7 +40,6 @@
         android:layout_marginRight="25dp"
         android:layout_alignParentEnd="true"
         android:src="@drawable/add"
-
         android:contentDescription="Adicionar"
         android:backgroundTint="#A4A4A4"/>
 

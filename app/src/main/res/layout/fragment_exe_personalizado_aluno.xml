@@ -89,11 +89,12 @@
 
         <TextView
             android:id="@+id/NumTempoDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/fundonumdescanso"
             android:fontFamily="@font/saira"
+            android:gravity="center"
             android:text="60s"
             android:textColor="@color/black"
             android:textSize="20sp" />
@@ -127,7 +128,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/NumeroDeSerie1"
+            android:id="@+id/NumeroDeSerieAluno1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -173,7 +174,7 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/NumeroDePeso1"
+            android:id="@+id/NumeroDePesoAluno1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

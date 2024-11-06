@@ -15,6 +15,6 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo1" />
+        android:src="@drawable/logoum" />
     </LinearLayout>
 </LinearLayout>
