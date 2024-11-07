@@ -57,7 +57,7 @@
             android:textStyle="bold"
             app:icon="@drawable/identity"
             app:iconSize="30dp"
-            app:iconTint="@color/Cor03">
+            app:iconTint="@color/pretogym">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -75,7 +75,7 @@
             android:textStyle="bold"
             app:icon="@drawable/graphic"
             app:iconSize="30dp"
-            app:iconTint="@color/Cor03">
+            app:iconTint="@color/pretogym">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -93,7 +93,7 @@
             android:textStyle="bold"
             app:icon="@drawable/feedback"
             app:iconSize="30dp"
-            app:iconTint="@color/Cor03">
+            app:iconTint="@color/pretogym">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -111,7 +111,7 @@
             android:textStyle="bold"
             app:icon="@drawable/ajuda"
             app:iconSize="30dp"
-            app:iconTint="@color/Cor03">
+            app:iconTint="@color/pretogym">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -129,7 +129,7 @@
             android:textStyle="bold"
             app:icon="@drawable/sair"
             app:iconSize="30dp"
-            app:iconTint="@color/Cor03">
+            app:iconTint="@color/pretogym">
 
         </com.google.android.material.button.MaterialButton>
 

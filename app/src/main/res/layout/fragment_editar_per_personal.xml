@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditarPerAlunoFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EditarPerPersonalFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -12,41 +12,41 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/PerfilAluno"
+            app:civ_border_color="#000"
+            app:civ_border_width="2dp"
             android:layout_width="wrap_content"
             android:layout_height="110dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="75dp"
-            android:src="@drawable/girlgym"
-            app:civ_border_color="#000"
-            app:civ_border_width="2dp">
+            android:src="@drawable/personalacademia">
 
         </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
-            android:id="@+id/NomeAluno"
+            android:id="@+id/NomeProfessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/PerfilAluno"
             android:gravity="center_horizontal"
-            android:text="Julia Silva "
+            android:text="Leonardo Gerlach"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/IddoAluno"
+            android:id="@+id/IddoProfessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/NomeAluno"
+            android:layout_below="@id/NomeProfessor"
             android:gravity="center_horizontal"
-            android:text="ID: 10134"
+            android:text="ID: 14565"
             android:textSize="15dp"
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:id="@+id/Dados"
+            android:id="@+id/DadosProfessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/IddoAluno">
+            android:layout_below="@id/IddoProfessor">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +58,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/prancheta"
-                    android:tint="@color/vermelhoescuro"/>
+                    android:tint="@color/vermelhoescuro" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -83,6 +83,7 @@
                     android:hint="Email:"
                     android:textSize="20dp" />
 
+
                 <EditText
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
@@ -99,6 +100,14 @@
                     android:hint="CPF:"
                     android:textSize="20dp" />
 
+                <EditText
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="CREF:"
+                    android:textSize="20dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,7 +121,7 @@
                         android:backgroundTint="#9C0521"
                         android:text="Salvar"
                         android:textSize="15dp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -121,5 +130,6 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="Cor01">#F20519</color>
-    <color name="Cor02">#BF0426</color>
-    <color name="Cor03">#1A1A26</color>
+    <color name="verlhoclaro">#F20519</color>
+    <color name="vermelhoescuro">#BF0426</color>
+    <color name="pretogym">#1A1A26</color>
 </resources>
