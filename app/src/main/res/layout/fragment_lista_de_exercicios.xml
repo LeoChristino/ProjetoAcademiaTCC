@@ -8,32 +8,21 @@
     android:orientation="vertical"
     tools:context=".fragmentListaDeExercicios">
 
-    <FrameLayout
-        android:id="@+id/frameLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <SearchView
-                android:id="@+id/idPesquisaExe"
-                android:layout_width="390dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/fundopesquisa"
-                android:queryHint="Pesquisa" />
 
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal">
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/GrupoMuscular"
-                android:layout_width="200dp"
-                android:layout_height="250dp"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="20dp"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:layout_marginRight="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -41,8 +30,8 @@
                     android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="180dp"
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/costas" />
 
@@ -53,11 +42,10 @@
                     android:fontFamily="@font/saira"
                     android:text="Barra"
                     android:textColor="@color/black"
-                    android:textSize="50sp"
+                    android:textSize="35dp"
                     android:layout_gravity="center_horizontal"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-        </LinearLayout>
-    </FrameLayout>
+</LinearLayout>
 </RelativeLayout>
