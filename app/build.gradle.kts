@@ -53,4 +53,5 @@ dependencies {
     implementation("androidx.compose.material3:material3:1.1.1")
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.google.firebase:firebase-database:20.3.3")
 }

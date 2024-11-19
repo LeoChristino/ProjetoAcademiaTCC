@@ -30,7 +30,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/NomeDaLista"
+            android:id="@+id/etNomeTreino"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="                                            "
@@ -163,7 +163,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonSalvar"
+        android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar"
