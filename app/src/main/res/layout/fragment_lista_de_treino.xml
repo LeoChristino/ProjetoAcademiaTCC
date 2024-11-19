@@ -33,7 +33,7 @@
     <!-- Botão de adicionar lista -->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_show_dialog"
+        android:id="@+id/btnCriarLista"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="575dp"

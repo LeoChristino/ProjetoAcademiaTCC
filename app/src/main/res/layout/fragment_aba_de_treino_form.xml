@@ -10,6 +10,10 @@
     android:padding="16dp"
     tools:context=".fragmentAbaDeTreinoForm">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +34,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/NomeDaLista"
+            android:id="@+id/edtNomeLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="                                                             "
@@ -49,7 +53,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/ObsDaLista"
+            android:id="@+id/edtObs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="                                                  "
@@ -68,7 +72,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/ObjDaLista"
+            android:id="@+id/edtObj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="                                                         "
@@ -76,9 +80,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonSalvar"
+        android:id="@+id/btnSalvarLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar "
         android:textSize="20dp"/>
+
+    </FrameLayout>
 </LinearLayout>

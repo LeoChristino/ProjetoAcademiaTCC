@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -13,90 +12,88 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class fragmentAbaDeTreinoForm extends Fragment {
 
-    private EditText etNomeTreino;
-    private CheckBox ckbDom, ckbSeg, ckbTer, ckbQua, ckbQui, ckbSex, ckbSab;
-    private Button btnSalvar;
+    private EditText edtNomeLista, edtObs, edtObj;
+    private Button btnSalvarLista;
+
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_aba_add_treino_dia_form, container, false);
-        // Inicializar os componentes
-        etNomeTreino = view.findViewById(R.id.NomeDaLista);
-        ckbDom = view.findViewById(R.id.ckbDom);
-        ckbSeg = view.findViewById(R.id.ckbSeg);
-        ckbTer = view.findViewById(R.id.ckbTer);
-        ckbQua = view.findViewById(R.id.ckbQua);
-        ckbQui = view.findViewById(R.id.ckbQui);
-        ckbSex = view.findViewById(R.id.ckbSex);
-        ckbSab = view.findViewById(R.id.ckbSab);
-        btnSalvar = view.findViewById(R.id.buttonSalvar);
+        View view = inflater.inflate(R.layout.fragment_aba_de_treino_form, container, false);
 
-        btnSalvar.setOnClickListener(v -> salvarTreino());
+        // Inicializa os componentes
+        edtNomeLista = view.findViewById(R.id.edtNomeLista);
+        edtObs = view.findViewById(R.id.edtObs);
+        edtObj = view.findViewById(R.id.edtObj);
+        btnSalvarLista = view.findViewById(R.id.btnSalvarLista);
+
+        // Inicializa o Firestore e FirebaseAuth
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+
+        // Configura o clique do botão
+        btnSalvarLista.setOnClickListener(v -> salvarListaDeTreino());
 
         return view;
     }
 
-    private void salvarTreino() {
-        String nomeTreino = etNomeTreino.getText().toString();
-        HashMap<String, Boolean> diasSelecionados = new HashMap<>();
-        diasSelecionados.put("Domingo", ckbDom.isChecked());
-        diasSelecionados.put("Segunda-feira", ckbSeg.isChecked());
-        diasSelecionados.put("Terça-feira", ckbTer.isChecked());
-        diasSelecionados.put("Quarta-feira", ckbQua.isChecked());
-        diasSelecionados.put("Quinta-feira", ckbQui.isChecked());
-        diasSelecionados.put("Sexta-feira", ckbSex.isChecked());
-        diasSelecionados.put("Sábado", ckbSab.isChecked());
+    private void salvarListaDeTreino() {
+        // Coleta os dados do usuário
+        String nomeDaLista = edtNomeLista.getText().toString().trim();
+        String observacao = edtObs.getText().toString().trim();
+        String objetivo = edtObj.getText().toString().trim();
 
-        if (nomeTreino.isEmpty()) {
-            Toast.makeText(getContext(), "Preencha o nome do treino!", Toast.LENGTH_SHORT).show();
+        // Obtém o UID do personal autenticado
+        String uidPersonal = auth.getCurrentUser() != null ? auth.getCurrentUser().getUid() : null;
+
+        if (nomeDaLista.isEmpty() || objetivo.isEmpty()) {
+            Toast.makeText(getContext(), "Por favor, preencha todos os campos obrigatórios.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("treinos");
-        String treinoId = databaseReference.push().getKey();
-
-        HashMap<String, Object> treinoData = new HashMap<>();
-        treinoData.put("nome", nomeTreino);
-        treinoData.put("dias", diasSelecionados);
-
-        databaseReference.child(treinoId).setValue(treinoData).addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(getContext(), "Treino salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                        // Navegar para outro fragment ou atualizar a interface
-                    } else {
-                        Toast.makeText(getContext(), "Erro ao salvar treino!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    // TODO: Rename and change types and number of parameters
-    public static fragmentAbaDeTreinoForm newInstance(String param1, String param2) {
-        fragmentAbaDeTreinoForm fragment = new fragmentAbaDeTreinoForm();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        if (uidPersonal == null) {
+            Toast.makeText(getContext(), "Erro: Usuário não autenticado.", Toast.LENGTH_SHORT).show();
+            return;
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_aba_de_treino_form, container, false);
+        // Cria o mapa para salvar no Firestore
+        Map<String, Object> listaDeTreino = new HashMap<>();
+        listaDeTreino.put("Nome", nomeDaLista);
+        listaDeTreino.put("Observacao", observacao);
+        listaDeTreino.put("Objetivo", objetivo);
+        listaDeTreino.put("PersonalUID", uidPersonal); // Associa o UID do personal
+
+        // Salva no Firestore
+        db.collection("ListaDeTreinos")
+                .add(listaDeTreino)
+                .addOnSuccessListener(documentReference -> {
+                    String codigoLista = documentReference.getId(); // ID gerado automaticamente
+
+                    // Navega para o próximo fragment automaticamente
+                    Fragment fragmentAbaDeTreinoForm = new fragmentAbaDeTreinoForm();
+                    Bundle args = new Bundle();
+                    args.putString("codigoLista", codigoLista); // Passa o ID da lista para o próximo fragment
+                    fragmentAbaDeTreinoForm.setArguments(args);
+
+                    // Transição de fragment
+                    requireActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, fragmentAbaDeTreinoForm)
+                            .addToBackStack(null)
+                            .commit();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(getContext(), "Erro ao criar lista: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
     }
 }
