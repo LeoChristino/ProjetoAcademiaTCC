@@ -78,7 +78,7 @@ public class ExerciciosFragment extends Fragment {
     }
 
     private void EventChangeListener() {
-        db.collection("Treinos").whereEqualTo("alunoId", userId).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("Treinos").whereEqualTo("alunoId", userId).orderBy("diaDaSemanaNumero").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {

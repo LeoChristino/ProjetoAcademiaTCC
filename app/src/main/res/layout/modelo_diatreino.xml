@@ -3,35 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardModeloDiaTreino"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="150dp"
     android:layout_marginHorizontal="10dp"
     android:layout_marginTop="10dp"
     android:checkable="true"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/Cor04"
-    app:strokeColor="@color/Cor02"
-    app:strokeWidth="3dp">
+    app:cardElevation="20dp">
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/duotone" />
 
-        <TextView
-            android:id="@+id/txtDiaDaSemana"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_margin="20dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/Cor01"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txtDiaDaSemana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/saira"
+        android:text="Segunda-Feira"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
-    </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>
