@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".telaspersonal.CriarExercicioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Cadastrar exercício"
+            android:textColor="@color/Cor01"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtNomeExercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Nome exercício"
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione o grupo muscular:"
+            android:textColor="@color/Cor01"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/spinnerGrupoMuscular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtDescExercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:hint="Descrição exercício"
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtVideoExercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:hint="link video do exercício"
+            android:textColorHint="@color/Cor01"
+            app:boxStrokeColor="@color/Cor01"
+            app:hintTextColor="@color/Cor01">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgExercicio"
+                android:layout_width="150dp"
+                android:layout_height="150dp" />
+
+            <Button
+                android:id="@+id/btnEnviarFotoExercicio"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:text="Imagem exercício"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                app:backgroundTint="@color/Cor01" />
+
+        </LinearLayout>
+
+        <Button
+        android:id="@+id/btnCadastrarExercicio"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Cadastrar"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:backgroundTint="@color/Cor01" />
+
+    </LinearLayout>
+</LinearLayout>

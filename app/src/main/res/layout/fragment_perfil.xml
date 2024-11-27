@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".geral.PerfilFragment"
+    android:background="@color/Cor04">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/cachorrofofoeasteregg"
+            app:civ_border_color="@color/Cor02"
+            app:civ_border_width="5dp" />
+
+        <TextView
+            android:id="@+id/txtNomePerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/saira"
+            android:gravity="center"
+            android:text="*Usuário*"
+            android:textColor="@color/Cor01"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/meusDados"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/Cor01"
+            android:text="Meus dados"
+            android:textColor="@color/white"
+            app:icon="@drawable/baseline_search"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
+
+        <Button
+            android:id="@+id/sair"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/Cor01"
+            android:text="Sair"
+            android:textColor="@color/white"
+            app:icon="@drawable/baseline_exit_to_app"
+            app:iconGravity="textStart"
+            app:iconTint="@color/white" />
+
+    </LinearLayout>
+</FrameLayout>
