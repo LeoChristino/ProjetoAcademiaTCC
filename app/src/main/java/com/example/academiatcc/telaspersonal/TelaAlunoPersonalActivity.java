@@ -80,7 +80,7 @@ public class TelaAlunoPersonalActivity extends AppCompatActivity {
     }
 
     private void EventChangeListener() {
-        db.collection("Treinos").whereEqualTo("alunoId", idAluno).addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("Treinos").whereEqualTo("alunoId", idAluno).orderBy("diaDaSemanaNumero").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
