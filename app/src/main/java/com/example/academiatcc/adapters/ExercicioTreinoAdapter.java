@@ -35,6 +35,7 @@ public class ExercicioTreinoAdapter extends RecyclerView.Adapter<ExercicioTreino
         holder.nomeExercicioTextView.setText(exercicio.nomeExercicio);
         holder.seriesTextView.setText(String.valueOf(exercicio.series));
         holder.repeticoesTextView.setText(String.valueOf(exercicio.repeticoes));
+        holder.cargaTextView.setText(String.valueOf(exercicio.carga+" Kg"));
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ExercicioTreinoAdapter extends RecyclerView.Adapter<ExercicioTreino
         public TextView nomeExercicioTextView;
         public TextView seriesTextView;
         public TextView repeticoesTextView;
+        public TextView cargaTextView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,6 +57,7 @@ public class ExercicioTreinoAdapter extends RecyclerView.Adapter<ExercicioTreino
             nomeExercicioTextView = itemView.findViewById(R.id.txtModeloNomeExercicioTreino);
             seriesTextView = itemView.findViewById(R.id.txtModeloNumeroSeries);
             repeticoesTextView = itemView.findViewById(R.id.txtModeloNumeroRep);
+            cargaTextView = itemView.findViewById(R.id.txtModeloCarga);
         }
     }
 }

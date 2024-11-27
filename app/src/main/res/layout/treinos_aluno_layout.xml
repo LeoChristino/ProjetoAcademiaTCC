@@ -16,7 +16,7 @@
         android:textAllCaps="true"
         android:textStyle="bold"
         android:textColor="@color/Cor01"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
         />
     <androidx.recyclerview.widget.RecyclerView

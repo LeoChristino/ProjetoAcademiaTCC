@@ -83,7 +83,7 @@ public class ListaAlunosPersonalFragment extends Fragment {
     }
 
     private void EventChangeListener() {
-        db.collection("Alunos").whereEqualTo("idPersonal", userId).orderBy("nome", Query.Direction.ASCENDING)
+        db.collection("Alunos").orderBy("nome", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -96,8 +96,8 @@ public class ListaAlunosPersonalFragment extends Fragment {
                                 Aluno aluno = dc.getDocument().toObject(Aluno.class);
                                 aluno.setId(dc.getDocument().getId());
                                 alunos.add(aluno);
+                                alunosAdapter.notifyDataSetChanged();
                             }
-                            alunosAdapter.notifyDataSetChanged();
                         }
                     }
                 });

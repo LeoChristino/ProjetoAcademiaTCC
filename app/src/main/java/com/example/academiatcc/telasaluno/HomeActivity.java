@@ -42,8 +42,6 @@ public class HomeActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
                 if (itemId == R.id.navHome) {
                     loadFragment(new HomeFragment(), false);
-                } else if (itemId == R.id.navBusca) {
-                    loadFragment(new BuscaFragment(), false);
                 } else if (itemId == R.id.navExercicios) {
                     loadFragment(new ExerciciosFragment(), false);
                 } else { //perfil

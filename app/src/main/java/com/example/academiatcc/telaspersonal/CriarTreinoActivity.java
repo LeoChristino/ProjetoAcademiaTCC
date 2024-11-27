@@ -43,9 +43,9 @@ import java.util.Map;
 
 public class CriarTreinoActivity extends AppCompatActivity {
 
-    private EditText txtNumSeries, txtNumRepeticoes;
+    private EditText txtNumSeries, txtNumRepeticoes, txtNumPeso;
     private FirebaseAuth auth;
-    private int numSeries = 0, numRepeticoes = 0;
+    private int numSeries = 0, numRepeticoes = 0, numPeso = 0;
     private final int minValue = 0;
     private final int maxValue = 15;
     RecyclerView recyclerView;
@@ -53,9 +53,8 @@ public class CriarTreinoActivity extends AppCompatActivity {
     ExerciciosPersonalAdapter exerciciosPersonalAdapter;
     FirebaseFirestore db;
     FirebaseStorage storage;
-    String grupoMuscular;
     String[] diasDaSemana = {"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"};
-    String nomeExercicio;
+    String nomeExercicio, idExercicio, grupoMuscular;
     Button btnAdicionarExercicio;
 
     @Override
@@ -65,6 +64,7 @@ public class CriarTreinoActivity extends AppCompatActivity {
 
         txtNumSeries = findViewById(R.id.txtNumSeries);
         txtNumRepeticoes = findViewById(R.id.txtNumRepeticoes);
+        txtNumPeso = findViewById(R.id.txtQuantidadePeso);
         recyclerView = findViewById(R.id.idRecyclerViewExercicios);
 
         db = FirebaseFirestore.getInstance();
@@ -76,13 +76,16 @@ public class CriarTreinoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(CriarTreinoActivity.this));
         recyclerView.setAdapter(exerciciosPersonalAdapter);
 
-
+        txtNumPeso.setText(String.valueOf(numPeso+" Kg"));
         txtNumSeries.setText(String.valueOf(numSeries));
         txtNumRepeticoes.setText(String.valueOf(numRepeticoes));
+
         findViewById(R.id.btn_menos1).setOnClickListener(v -> diminuirSeries());
         findViewById(R.id.btn_mais1).setOnClickListener(v -> aumentarSeries());
         findViewById(R.id.btn_menos2).setOnClickListener(v -> diminuirRepeticoes());
         findViewById(R.id.btn_mais2).setOnClickListener(v -> aumentarRepeticoes());
+        findViewById(R.id.btn_menos3).setOnClickListener(v -> diminuirPeso());
+        findViewById(R.id.btn_mais3).setOnClickListener(v -> aumentarPeso());
 
         ArrayAdapter<String> diaDaSemanaAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, diasDaSemana);
         diaDaSemanaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -142,6 +145,7 @@ public class CriarTreinoActivity extends AppCompatActivity {
         exerciciosPersonalAdapter.setOnItemClickListener(new ExerciciosPersonalAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Exercicio exercicio) {
+                idExercicio = exercicio.getId();
                 nomeExercicio = exercicio.getNome();
             }
         });
@@ -150,11 +154,13 @@ public class CriarTreinoActivity extends AppCompatActivity {
         btnAdicionarExercicio.setOnClickListener(View -> {
             auth = FirebaseAuth.getInstance();
             FirebaseUser personal = auth.getCurrentUser();
-            adicionarExercicio(personal.getUid(), idAluno, spinnerDiaDaSemana.getSelectedItem().toString(), nomeExercicio, numSeries, numRepeticoes);
+            adicionarExercicio(personal.getUid(), idAluno, spinnerDiaDaSemana.getSelectedItem().toString(), nomeExercicio, idExercicio,numSeries, numRepeticoes, numPeso);
             numSeries = 0;
             numRepeticoes = 0;
+            numPeso = 0;
             txtNumSeries.setText(String.valueOf(0));
             txtNumRepeticoes.setText(String.valueOf(0));
+            txtNumPeso.setText(String.valueOf(0+" Kg"));
         });
 
     }
@@ -177,6 +183,16 @@ public class CriarTreinoActivity extends AppCompatActivity {
     private void aumentarRepeticoes() {
         numRepeticoes = Math.min(numRepeticoes + 1, maxValue);
         txtNumRepeticoes.setText(String.valueOf(numRepeticoes));
+    }
+
+    private void diminuirPeso() {
+        numPeso = Math.max(numPeso - 1, minValue);
+        txtNumPeso.setText(String.valueOf(numPeso+" Kg"));
+    }
+
+    private void aumentarPeso() {
+        numPeso = Math.min(numPeso + 1, maxValue);
+        txtNumPeso.setText(String.valueOf(numPeso+" Kg"));
     }
 
     private void listaExercicios() {
@@ -224,16 +240,18 @@ public class CriarTreinoActivity extends AppCompatActivity {
         return dayOfWeekMap.getOrDefault(dayOfWeek, -1); // Return -1 if dayOfWeek is not found
     }
 
-    private void adicionarExercicio(String personalId, String alunoId, String diaDaSemana, String nomeExercicio, int series, int repeticoes) {
+    // ... other code ...
+
+    private void adicionarExercicio(String personalId, String alunoId, String diaDaSemana, String nomeExercicio, String idExercicio, int series, int repeticoes, int carga) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("Treinos").whereEqualTo("alunoId", alunoId).whereEqualTo("diaDaSemana", diaDaSemana).whereEqualTo("personalId", personalId).get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 if (task.getResult().isEmpty()) {
-                    criarNovoTreino(personalId, alunoId, diaDaSemana, nomeExercicio, series, repeticoes);
+                    criarNovoTreino(personalId, alunoId, diaDaSemana, nomeExercicio, idExercicio, series, repeticoes, carga);
                 } else {
                     DocumentReference treinoRef = task.getResult().getDocuments().get(0).getReference();
-                    adicionarExercicioAoTreino(treinoRef.getId(), nomeExercicio, series, repeticoes);
+                    adicionarExercicioAoTreino(treinoRef.getId(), nomeExercicio, idExercicio, series, repeticoes, carga);
                 }
             } else {
                 Toast.makeText(CriarTreinoActivity.this, "Erro ao buscar treino: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -241,7 +259,7 @@ public class CriarTreinoActivity extends AppCompatActivity {
         });
     }
 
-    private void criarNovoTreino(String personalId, String alunoId, String diaDaSemana, String nomeExercicio, int series, int repeticoes) {
+    private void criarNovoTreino(String personalId, String alunoId, String diaDaSemana, String nomeExercicio, String idExercicio, int series, int repeticoes, int carga) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> treinoData = new HashMap<>();
@@ -251,23 +269,24 @@ public class CriarTreinoActivity extends AppCompatActivity {
         treinoData.put("diaDaSemanaNumero", getDayOfWeekNumber(diaDaSemana));
 
         db.collection("Treinos").add(treinoData).addOnSuccessListener(documentReference -> {
-            adicionarExercicioAoTreino(documentReference.getId(), nomeExercicio, series, repeticoes);
+            adicionarExercicioAoTreino(documentReference.getId(), nomeExercicio, idExercicio, series, repeticoes, carga);
         }).addOnFailureListener(e -> {
             Toast.makeText(CriarTreinoActivity.this, "Erro ao criar treino: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         });
     }
 
-    private void adicionarExercicioAoTreino(String treinoId, String nomeExercicio, int series, int repeticoes) {
+    private void adicionarExercicioAoTreino(String treinoId, String nomeExercicio, String idExercicio, int series, int repeticoes, int carga) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> exercicioData = new HashMap<>();
-        exercicioData.put("grupoMuscular", grupoMuscular); // Assuming grupoMuscular is defined somewhere
+        exercicioData.put("grupoMuscular", grupoMuscular);
         exercicioData.put("nomeExercicio", nomeExercicio);
+        exercicioData.put("idExercicio", idExercicio);
         exercicioData.put("series", series);
         exercicioData.put("repeticoes", repeticoes);
+        exercicioData.put("carga", carga); // Add weight quantity here
         exercicioData.put("treinoId", treinoId);
 
-        // Changed collection name to "ExercicioTreino"
         db.collection("ExercicioTreino").add(exercicioData).addOnSuccessListener(aVoid -> {
             Toast.makeText(CriarTreinoActivity.this, "Exercício adicionado ao treino!", Toast.LENGTH_SHORT).show();
         }).addOnFailureListener(e -> {

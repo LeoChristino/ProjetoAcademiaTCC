@@ -41,7 +41,7 @@ public class TreinosAlunoActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        String treinoId = treino; // Replace with the actual treinoId
+        String treinoId = treino;
 
         db.collection("ExercicioTreino")
                 .whereEqualTo("treinoId", treinoId)

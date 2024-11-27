@@ -5,17 +5,21 @@ public class ExercicioTreino {
     public String nomeExercicio;
     public int series;
     public int repeticoes;
+    public int carga;
     public String treinoId;
+    public String id;
 
     public ExercicioTreino() {
     } // Empty constructor needed for Firestore
 
-    public ExercicioTreino(String grupoMuscular, String nomeExercicio, int series, int repeticoes, String treinoId) {
+    public ExercicioTreino(String grupoMuscular, String nomeExercicio, int series, int repeticoes, int carga, String treinoId, String id) {
         this.grupoMuscular = grupoMuscular;
         this.nomeExercicio = nomeExercicio;
         this.series = series;
         this.repeticoes = repeticoes;
+        this.carga = carga;
         this.treinoId = treinoId;
+        this.id = id;
     }
 
     public String getGrupoMuscular() {
@@ -50,11 +54,27 @@ public class ExercicioTreino {
         this.repeticoes = repeticoes;
     }
 
+    public int getCarga() {
+        return carga;
+    }
+
+    public void setCarga(int carga) {
+        this.carga = carga;
+    }
+
     public String getTreinoId() {
         return treinoId;
     }
 
     public void setTreinoId(String treinoId) {
         this.treinoId = treinoId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

@@ -7,14 +7,9 @@
         android:icon="@drawable/baseline_home"
         android:title="home" />
     <item
-        android:id="@+id/navBusca"
-        android:enabled="true"
-        android:icon="@drawable/baseline_search"
-        android:title="busca" />
-    <item
         android:id="@+id/navExercicios"
         android:enabled="true"
-        android:icon="@drawable/baseline_view_list"
+        android:icon="@drawable/dumbbell"
         android:title="exercicios" />
     <item
         android:id="@+id/navPerfil"

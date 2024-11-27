@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AcademiaTCC"
         tools:targetApi="31">
         <activity
+            android:name=".geral.TelaExercicioActivity"
+            android:exported="false" />
+        <activity
             android:name=".telaspersonal.TreinosAlunoActivity"
             android:exported="false" />
         <activity
